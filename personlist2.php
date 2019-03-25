@@ -10,11 +10,17 @@ require 'connect.php';
 ?>
 <!DOCTYPE html>
 <html>
-<title>Barangay System</title>
-
+<head>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<script type="text/javascript" src="bootstrap/js/jquery-slim.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/popper.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+		<title>Barangay System</title>
+</head>
 <body>
 
-<center><h2>Person List </h2>
+<center>
+<center><strong><p align="center" style="font-size: 30px; margin-top: 12px;">Person List</p></strong></center>
 <table class="table table-bordered table-hover table-striped">
 <table style="width:125%">
   <tr>
@@ -51,10 +57,10 @@ require 'connect.php';
 			<td> | <?php echo $information['occupation']?></td>
 			
 
-	<td> | <a href="deleteperson.php?id=<?php echo $information['person_id']; ?>">Delete</i></a>
+	<td> | <a class="btn btn-danger" href="deleteperson.php?id=<?php echo $information['person_id']; ?>">Delete</i></a>
 		</td>
 	<td> | 
-    <a href="editperson.php?edit_id=<?php echo $information['person_id']; ?>">Edit</i></a>
+    <a class="btn btn-success" href="editperson.php?edit_id=<?php echo $information['person_id']; ?>">Edit</i></a>
 		</td>
 
 
@@ -65,9 +71,9 @@ require 'connect.php';
 	
 	</tbody>
 	  </table>
-	 <br><br><br><br><a href= "addperson2.php"><input class="btn" type="button" id="list_btn" value="Add person"/></a>
-	<a href ="home.php"><input class="btn" type="button" id="list_btn" value="Home"/></a>
-	<a href ="list.php"><input class="btn" type="button" id="list_btn" value="Back"/></a>
+	 <br><br><br><br><a href= "addperson2.php"><input class="btn btn-primary" type="button" id="list_btn" value="Add person"/></a>
+	<a href ="home.php"><input class="btn btn-info" type="button" id="list_btn" value="Home"/></a>
+	<a href ="list.php"><input class="btn btn-secondary" type="button" id="list_btn" value="Back"/></a>
 
 </body>
 </html>
