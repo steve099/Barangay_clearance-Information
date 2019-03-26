@@ -7,8 +7,13 @@ require 'connect.php';
 ?>
 <!DOCTYPE html>
 <html>
+<head>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<script type="text/javascript" src="bootstrap/js/jquery-slim.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/popper.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
 <title>Barangay System</title>
-
+</head>
 <body>
 
 <center><h2> List </h2>
@@ -35,10 +40,10 @@ require 'connect.php';
 			<td>|	<?php echo $information['middlename']?></td>
 			<td>|	<?php echo $information['position']?></td>
 
-	<td> | <a href="deleteofficer.php?id=<?php echo $information['officer_id']; ?>">Delete</i></a>
+	<td> | <a class="btn btn-danger" href="deleteofficer.php?id=<?php echo $information['officer_id']; ?>">Delete</i></a>
 		</td>
 	<td> | 
-    <a href="editofficer.php?edit_id=<?php echo $information['officer_id']; ?>">Edit</i></a>
+    <a class="btn btn-success" href="editofficer.php?edit_id=<?php echo $information['officer_id']; ?>">Edit</i></a>
 		</td>
 
 
@@ -49,9 +54,9 @@ require 'connect.php';
 	
 	</tbody>
 	  </table>
-	 <br><br><br><br><a href= "addbrgofficer.php"><input class="btn" type="button" id="list_btn" value="Add Officer"/></a>
-	<a href ="home.php"><input class="btn" type="button" id="list_btn" value="Home"/></a>
-	<a href ="list.php"><input class="btn" type="button" id="list_btn" value="Back"/></a>
+	 <br><br><br><br><a href= "addbrgofficer.php"><input class="btn btn-primary" type="button" id="list_btn" value="Add Officer"/></a>
+	<a href ="home.php"><input class="btn btn-info" type="button" id="list_btn" value="Home"/></a>
+	<a href ="list.php"><input class="btn btn-secondary" type="button" id="list_btn" value="Back"/></a>
 
 </body>
 </html>

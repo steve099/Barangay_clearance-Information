@@ -24,6 +24,12 @@ if (isset($_POST['update1'])){
 ?>
 <DOCTYPE html>
 <html>
+<head>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<script type="text/javascript" src="bootstrap/js/jquery-slim.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/popper.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+</head>
 <body>
 <center>
 <form action="" method="POST">
@@ -32,14 +38,21 @@ if (isset($_POST['update1'])){
 			if(mysqli_num_rows($result)) {
 				while($row = mysqli_fetch_array($result)) {
 		?>
+	<div class="form-row">
+	<div class="col-md-6">
 	Officer ID :
-	<input type="number" name="officer_id" placeholder="officer id" value="<?php echo $row['officer_id']; ?>" ><br><br>
+	<input type="number" name="officer_id" placeholder="officer id" class="form-control" value="<?php echo $row['officer_id']; ?>" ><br></div>
+	<div class="col-md-6">
 	Address :
-	<input type="text" name="address" placeholder="address" value="<?php echo $row['address']; ?>" ><br><br>
+	<input type="text" name="address" placeholder="address" class="form-control" value="<?php echo $row['address']; ?>" ><br><br></div></div>
 	
 	
-			
+	<div class="form-row">
+	<div class="col-md-4"></div>
+	<div class="col-md-4">	
 	<button type="submit" name="update1" class="btn btn-primary">Update</button>
+	<a href ="barangaylist.php"><input class="btn" type="button" id="list_btn" value="Back"/></a>
+	<div class="col-md-4"></div></div></div>	
 			<?php } } ?>
 </form>
 </center>

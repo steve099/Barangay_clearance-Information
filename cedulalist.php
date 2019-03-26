@@ -7,13 +7,20 @@ require 'connect.php';
 ?>
 <!DOCTYPE html>
 <html>
+<head>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<script type="text/javascript" src="bootstrap/js/jquery-slim.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/popper.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+
+</head>
 <title>Barangay System</title>
 
 <body>
 
 <center><h2>Cedula List </h2>
 <table class="table table-bordered table-hover table-striped">
-<table style="width:40%">
+<table style="width:60%">
   <tr>
         <th scope="col">|CTC No</th>
         <th scope="col">|Placed Issue</th>
@@ -32,10 +39,10 @@ require 'connect.php';
 			<td> | <?php echo $information['date_issue']?></td>
 			
 
-	<td> | <a href="deletecedula.php?id=<?php echo $information['ctc_no']; ?>">Delete</i></a>
+	<td> | <a class="btn btn-danger" href="deletecedula.php?id=<?php echo $information['ctc_no']; ?>">Delete</i></a>
 		</td>
 	<td> | 
-    <a href="editcedula.php?edit_id=<?php echo $information['ctc_no']; ?>">Edit</i></a>
+    <a  class="btn btn-success" href="editcedula.php?edit_id=<?php echo $information['ctc_no']; ?>">Edit</i></a>
 		</td>
 
 
@@ -46,8 +53,8 @@ require 'connect.php';
 	
 	</tbody>
 	  </table>
-	 <br><br><br><br><a href= "addcedula.php"><input class="btn" type="button" id="list_btn" value="Add cedula"/></a>
-	<a href ="home.php"><input class="btn" type="button" id="list_btn" value="Home"/></a>
+	 <br><br><br><br><a href= "addcedula.php"><input class="btn btn-primary" type="button" id="list_btn" value="Add cedula"/></a>
+	<a href ="home.php"><input class="btn btn-info"  type="button" id="list_btn" value="Home"/></a>
 
 </body>
 </html>

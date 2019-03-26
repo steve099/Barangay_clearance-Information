@@ -21,7 +21,7 @@ require 'connect.php';
 <center><h2> List </h2>
 
 <table class="table table-dark">
-<table style="width:35%">
+<table style="width:50%">
 <thead>
   <tr>
         <th scope="col">|Officer ID</th>

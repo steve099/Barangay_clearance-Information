@@ -24,6 +24,12 @@ if (isset($_POST['update5'])){
 ?>
 <DOCTYPE html>
 <html>
+<head>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<script type="text/javascript" src="bootstrap/js/jquery-slim.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/popper.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+</head>
 <body>
 <center>
 <form action="" method="POST">
@@ -32,16 +38,20 @@ if (isset($_POST['update5'])){
 			if(mysqli_num_rows($result)) {
 				while($row = mysqli_fetch_array($result)) {
 		?>
+	<div class="form-row">
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
 	CTC_no :
-	<input type="number" name="ctc_no" placeholder="ctc_no" value="<?php echo $row['ctc_no']; ?>" ><br><br>
+	<input type="number" name="ctc_no" placeholder="ctc_no" class="form-control" value="<?php echo $row['ctc_no']; ?>" ><br>
 	Place Issue :
-	<input type="text" name="placed_issue" placeholder="placed_issue" value="<?php echo $row['placed_issue']; ?>" ><br><br>
+	<input type="text" name="placed_issue" placeholder="placed_issue" class="form-control" value="<?php echo $row['placed_issue']; ?>" ><br>
 	Date Issue :
-	<input type="date" name="date_issue" placeholder="date_issue" value="<?php echo $row['date_issue']; ?>" ><br><br>
-	
+	<input type="date" name="date_issue" placeholder="date_issue" class="form-control" value="<?php echo $row['date_issue']; ?>" ><br>
+	<div class="col-md-4"></div></div></div>
 	
 			
 	<button type="submit" name="update5" class="btn btn-primary">Update</button>
+	<a href ="cedulalist.php"><input class="btn" type="button" id="list_btn" value="Back"/></a>
 			<?php } } ?>
 </form>
 </center>

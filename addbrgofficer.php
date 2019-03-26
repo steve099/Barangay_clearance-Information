@@ -12,8 +12,7 @@
 <form action="saveofficer.php" method="POST">
 	<br><br>
 	<div class="form-row">
-	<div class="col-md-4">
-	</div>
+	<div class="col-md-4"></div>
 	<div class="col-md-4">
 	Officer ID :
 	<input type="number" name="officer_id" placeholder="officer id" class="form-control" required><br>
@@ -31,8 +30,8 @@
 	<a href ="home.php"><input class="btn btn-secondary" type="button" id="list_btn" value="Back"/></a>
 
 
-
-
+</div>
+</div>
 </form>
 </center>
 </body>

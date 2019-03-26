@@ -32,6 +32,12 @@ if (isset($_POST['update4'])){
 ?>
 <DOCTYPE html>
 <html>
+<head>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<script type="text/javascript" src="bootstrap/js/jquery-slim.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/popper.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+</head>
 <body>
 <center>
 <form action="" method="POST">
@@ -40,28 +46,44 @@ if (isset($_POST['update4'])){
 			if(mysqli_num_rows($result)) {
 				while($row = mysqli_fetch_array($result)) {
 		?>
+	<div class="form-row">
+	<div class="col-md-4">
 	Person ID :
-	<input type="number" name="person_id" placeholder="person id" value="<?php echo $row['person_id']; ?>" ><br><br>
+	<input type="number" name="person_id" placeholder="person id" class="form-control" value="<?php echo $row['person_id']; ?>" ><br></div>
+	<div class="col-md-4">
 	Last name :
-	<input type="text" name="lastname" placeholder="lastname" value="<?php echo $row['lastname']; ?>" ><br><br>
+	<input type="text" name="lastname" placeholder="lastname" class="form-control" value="<?php echo $row['lastname']; ?>" ><br></div>
+	<div class="col-md-4">
 	First name :
-	<input type="text" name="firstname" placeholder="first name" value="<?php echo $row['firstname']; ?>"><br><br>
+	<input type="text" name="firstname" placeholder="first name" class="form-control" value="<?php echo $row['firstname']; ?>"><br></div></div>
+	<div class="form-row">
+	<div class="col-md-4">
 	Middle name :
-	<input type="text" name="middlename" placeholder="middle name"  value="<?php echo $row['middlename']; ?>"><br><br>
+	<input type="text" name="middlename" placeholder="middle name" class="form-control" value="<?php echo $row['middlename']; ?>"><br></div>
+	<div class="col-md-4">
 	Birth place : 
-	<input type="text" name="birthplace" placeholder="Birthplace" value="<?php echo $row['birthplace']; ?>" ><br><br>
+	<input type="text" name="birthplace" placeholder="Birthplace" class="form-control" value="<?php echo $row['birthplace']; ?>" ><br></div>
+	<div class="col-md-4">
 	Birth date : 
-	<input type="date" name="birthdate" placeholder="Birthdate" value="<?php echo $row['birthdate']; ?>" ><br><br>
+	<input type="date" name="birthdate" placeholder="Birthdate" class="form-control" value="<?php echo $row['birthdate']; ?>" ><br></div></div>
+	<div class="form-row">
+	<div class="col-md-4">
 	Gender : 
-	<input type="text" name="sex" placeholder="gender" value="<?php echo $row['sex']; ?>" ><br><br>
+	<input type="text" name="sex" placeholder="gender"  class="form-control" value="<?php echo $row['sex']; ?>" ><br></div>
+	<div class="col-md-4">
 	Civil status : 
-	<input type="text" name="civilstatus" placeholder="Civilstatus" value="<?php echo $row['civilstatus']; ?>" ><br><br>
+	<input type="text" name="civilstatus" placeholder="Civilstatus" class="form-control" value="<?php echo $row['civilstatus']; ?>" ><br></div>
+	<div class="col-md-4">
 	Citizenship : 
-	<input type="text" name="citizenship" placeholder="Citizenship" value="<?php echo $row['citizenship']; ?>" ><br><br>
+	<input type="text" name="citizenship" placeholder="Citizenship" class="form-control" value="<?php echo $row['citizenship']; ?>" ><br></div></div>
+	<div class="form-row">
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
 	Occupation : 
-	<input type="text" name="occupation" placeholder="Occupation" value="<?php echo $row['occupation']; ?>" ><br><br>		
+	<input type="text" name="occupation" placeholder="Occupation" class="form-control" value="<?php echo $row['occupation']; ?>" ><br><br>		
 	<button type="submit" name="update4" class="btn btn-primary">Update</button>
 	<a href ="personlist2.php"><input class="btn" type="button" id="list_btn" value="Back"/></a>
+	<div class="col-md-4"></div></div></div>
 			<?php } } ?>
 </form>
 </center>
