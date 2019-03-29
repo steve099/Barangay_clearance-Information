@@ -24,7 +24,7 @@ require 'connect.php';
 
 <center><h2> Case List </h2>
 <table class="table table-bordered table-hover table-striped">
-<table style="width:80%">
+<table style="width:90%">
   <tr>
 		<th scope="col">|Officer name</th>
         <th scope="col">|Person name</th>

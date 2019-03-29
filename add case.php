@@ -66,18 +66,22 @@
       <label for="date">Date:</label>
       <input type="date" name="date" class="form-control" id="date" placeholder="date" required>
     </div><br>
+	<div class="form-row">
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
 	Status :
 	<select name ="status" class="form-control" required>
 		<option value="">Select</option>
-  		<option value="Peding">Peding</option>
+  		<option value="Pending">Pending</option>
   		<option value="Ongoing">On going</option>
 		<option value="solve">Solve</option>
-	</select><br></div></div>
+	</select><br><div class="col-md-4"></div></div></div>
 	
 	<form class="Form" method="post">
   <input  class="btn btn-primary" type ="submit" name="save_btn" value="Save"/>
   <a href ="caselist.php"><input class="btn btn-info" type="button" id="list_btn" value="List"/></a>
   <a href ="home.php"><input class="btn btn-secondary" type="button" id="list_btn" value="Back"/></a>
+  	<div class="col-md-4"></div></div>
  
 </center>
 </form> 

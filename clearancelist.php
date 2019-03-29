@@ -11,13 +11,20 @@ require 'connect.php';
 ?>
 <!DOCTYPE html>
 <html>
+<head>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<script type="text/javascript" src="bootstrap/js/jquery-slim.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/popper.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+
+</head>
 <title>Barangay System</title>
 
 <body>
 
 <center><h2> List of clearance</h2>
 <table class="table table-bordered table-hover table-striped">
-<table style="width:70%">
+<table style="width:90%">
   <tr>
         <th scope="col">|Clearance ID</th>
 		<th scope="col">|Officer name</th>
@@ -43,10 +50,10 @@ require 'connect.php';
 			<td>|	<?php echo $information['or_no']?></td>
 			<td>|	<?php echo $information['date_issue']?></td>
 
-	<td> | <a href="deleteclearance.php?id=<?php echo $information['clearance_id']; ?>">Delete</i></a>
+	<td> | <a class="btn btn-danger"  href="deleteclearance.php?id=<?php echo $information['clearance_id']; ?>">Delete</i></a>
 		</td>
 	<td> | 
-    <a href="editclearance.php?edit_id=<?ppersonhp echo $information['clearance_id']; ?>">Edit</i></a>
+    <a  class="btn btn-success" href="editclearance.php?edit_id=<?php echo $information['clearance_id']; ?>">Edit</i></a>
 		</td>
 
 
@@ -57,8 +64,8 @@ require 'connect.php';
 	
 	</tbody>
 	  </table>
-	 <br><br><br><br><a href= "addclearance.php"><input class="btn" type="button" id="list_btn" value="Add clearance"/></a>
-	<a href ="home.php"><input class="btn" type="button" id="list_btn" value="Home"/></a>
+	 <br><br><br><br><a href= "addclearance.php"><input class="btn btn-primary" type="button" id="list_btn" value="Add clearance"/></a>
+	<a href ="home.php"><input  class="btn btn-info" type="button" id="list_btn" value="Home"/></a>
 
 </body>
 </html>

@@ -1,42 +1,32 @@
 <DOCTYPE html>
 <html>
-<head></head>
+<head>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<script type="text/javascript" src="bootstrap/js/jquery-slim.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/popper.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+</head>
 <body>
-<center>
-<form action="saveclearance.php" method="POST">
+<div ="container">
 <center><strong><p align="center" style="font-size: 30px; margin-top: 12px;">Add clearance</p></strong><hr>
-	<br><br>
-		<?php 
-	include('connect.php');
-			$query = "SELECT * FROM cedula ";
-			$result = mysqli_query($con, $query);
+<form action="saveclearance.php" method="POST">
 
-	?>
-	<div class="form-group">
-      <label for="ctc_no">CTC no:</label>
-      <select name= "ctc_no">
-	  <?php
-	  if (mysqli_num_rows($result)){
-		  while($row = mysqli_fetch_array($result)){
-		?>
-		<option value="<?php echo $row['ctc_no']; ?>"> <?php echo $row['ctc_no']; ?></option>
-		<?php
-		  }
-	  }
-	  ?>
-	  </select>
-    </div><br>
-	Clearance ID :
-	<input type="number" name="clearance_id" placeholder="clearance id" required><br><br>
+	<br><br>
+	
+	<div class="form-row">
+	<div class="col-md-4">
+	Clearance ID:
+	<input type="number" name="clearance_id"  class="form-control" placeholder="clearance id" required><br></div>
+	
+	<div class="col-md-4">
 	<?php 
 		include('connect.php');
 		$query = "SELECT * FROM brg_officer ";
 		$result = mysqli_query($con, $query);
 
 	?>
-	<div class="form-group">
-      <label for="id">Officer name:</label>
-      <select name= "officer_id">
+	<label for="id">Officer name:
+      <select name= "officer_id"  class="form-control" >
 	  <?php	
 	  if (mysqli_num_rows($result)){
 		  while($row = mysqli_fetch_array($result)){
@@ -48,15 +38,38 @@
 	  ?>
 	  </select>
     </div><br>
+	<div class="col-md-4">
+		<?php 
+	include('connect.php');
+			$query = "SELECT * FROM cedula, person WHERE cedula.person_id = person.person_id ";
+			$result = mysqli_query($con, $query);
+
+	?>
+
+      <label for="ctc_no">CTC no:	
+      <select name= "ctc_no" class="form-control" >
+	  <?php
+	  if (mysqli_num_rows($result)){
+		  while($row = mysqli_fetch_array($result)){
+		?>
+		<option value="<?php echo $row['person_id']; ?>"> <?php echo $row['ctc_no']; ?> (<?php echo $row['lastname'];  ?><?php echo " "  ?><?php echo $row['firstname'];  ?>)</option>
+		<?php
+		  }
+	  }
+	  ?>
+	  </select>
+   </div></div> 
+	<div class="form-row">	
+	
+	<div class="col-md-4">	
 	<?php 
 	include('connect.php');
 			$query = "SELECT * FROM person ";
 			$result = mysqli_query($con, $query);
 
 	?>
-	<div class="form-group">
-      <label for="person_id">Person Name:</label>
-      <select name= "person_id">
+      <label for="person_id">Person Name:
+      <select name= "person_id" class="form-control" >
 	  <?php
 	  if (mysqli_num_rows($result)){
 		  while($row = mysqli_fetch_array($result)){
@@ -68,21 +81,28 @@
 	  ?>
 	  </select>
     </div><br>
+	<div class="col-md-4">
 	Purpose :
-	<input type="text" name="purpose" placeholder="purpose" required><br><br>
+	<input type="text" name="purpose"  class="form-control"  placeholder="purpose" required><br></div>
+	<div class="col-md-4">
 	OR No :
-	<input type="number" name="or_no" placeholder="OR no" required><br><br>
+	<input type="number" name="or_no"  class="form-control"  placeholder="OR no" required><br></div>
+	<div class="col-md-4"></div></div>
+	
+	<div class="form-row">
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
 	Date Issue :
-	<input type="date" name="date_issue" placeholder="Date Issue" required><br><br>
-
+	<input type="date" name="date_issue"  class="form-control"  placeholder="Date Issue" required><br>
 	<button type="submit" name="submit" class="btn btn-primary">Submit</button>
 	<a href ="clearancelist.php"><input class="btn" type="button" id="list_btn" value="List"/></a>
 	<a href ="home.php"><input class="btn" type="button" id="list_btn" value="Back"/></a>
-
-
+	<div class="col-md-4"></div></div></div>
+	
 
 
 </form>
+
 </center>
 </body>
 </html>

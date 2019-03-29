@@ -52,7 +52,7 @@ if (isset($_POST['update6'])){
 	Status :
 	<select name ="status" class="form-control" required>
 		<option value="<?php echo $row['status']; ?>"><?php echo $row['status']; ?></option>
-  		<option value="Peding">Peding</option>
+  		<option value="Pending">Pending</option>
   		<option value="Ongoing">On going</option>
 		<option value="solve">Solve</option>
 	</select><br>
@@ -60,6 +60,7 @@ if (isset($_POST['update6'])){
 	
 			
 	<button type="submit" name="update6" class="btn btn-primary">Update</button>
+	<a href ="caselist.php"><input class="btn btn-secondary" type="button" id="list_btn" value="Back"/></a>
 	<div class="col-md-4"></div>
 			<?php } } ?>
 </form>
