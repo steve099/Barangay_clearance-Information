@@ -14,7 +14,7 @@
 <div class="pill-nav">
 <a href ="logout.php">Logout</a>
 </div>
-		<center><h1 style="color:white;">Barangay/Clearance Info System</h1></center>
+		<center><h2 style="color:white;">Barangay/Clearance Info System</h2></center>
 		<div class="pill-nav">
 			<a href ="list.php">List</a>
 		</div>

@@ -32,8 +32,8 @@ include('connect.php');
 	  </select>
     </div><br>
 	  <div class="col-md-6">
-      <label for="address">Barangay:</label>
-      <input type="text" name="address" class="form-control"  placeholder="addres " required>
+      <label for="addressname">Barangay:</label>
+      <input type="text" name="barangayname" class="form-control"  placeholder="barangay" required>
     </div></div><br>
 	<div class="form-row">
     <div class="col-md-4"></div>

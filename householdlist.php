@@ -1,7 +1,7 @@
 <?php
 session_start();
 require 'connect.php';
-	$sql = "SELECT brg_officer.officer_id, brg_officer.lastname AS lname, brg_officer.firstname AS fname,brg_officer.position ,person.person_id, person.lastname, person.firstname,household.brg_workers,household.household_no,household.barangay,household.purok,household.province 
+	$sql = "SELECT brg_officer.officer_id, brg_officer.lastname AS lname, brg_officer.firstname AS fname,brg_officer.position ,person.person_id, person.lastname, person.firstname,household.brg_workers,household.household_no,household.barangayname,household.purok,household.province 
 	FROM brg_officer 
 	JOIN household 
 	ON brg_officer.officer_id = household.officer_id 
@@ -44,7 +44,7 @@ require 'connect.php';
 			<td> | <?php echo $information['lastname']." ".$information["firstname"];?></td>
 			<td> | <?php echo $information['brg_workers']?></td>
 			<td> | <?php echo $information['household_no']?></td>
-			<td> | <?php echo $information['barangay']?></td>
+			<td> | <?php echo $information['barangayname']?></td>
 			<td> | <?php echo $information['purok']?></td>
 			<td> | <?php echo $information['province']?></td>
 			

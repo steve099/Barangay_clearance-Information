@@ -62,11 +62,27 @@ include('connect.php');
       <label for="household_no">House No:</label>
       <input type="text" name="household_no" class="form-control"  placeholder="household no" required>
     </div></div><br>
-		<div class="form-row">
-	  <div class="col-md-4">
-      <label for="barangay">Barangay:</label>
-      <input type="text" name="barangay" class="form-control"  placeholder="barangay" required>
-    </div><br>
+	
+		<?php 
+	include('connect.php');
+			$query = "SELECT * FROM barangay1 ";
+			$result = mysqli_query($con, $query);
+
+	?>
+	<div class="col-md-6">
+      <label for="barangayname">Barangay Name:</label>
+      <select name= "barangayname" class="form-control">
+	  <?php
+	  if (mysqli_num_rows($result)){
+		  while($row = mysqli_fetch_array($result)){
+		?>
+		<option value="<?php echo $row['barangayname']; ?>"> <?php echo $row['barangayname']; ?></option>
+		<?php
+		  }
+	  }
+	  ?>
+	  </select>
+    </div></div><br>
 	<?php 
 			include('connect.php');
 			$query = "SELECT * FROM purok2 ";

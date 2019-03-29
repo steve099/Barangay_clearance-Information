@@ -68,11 +68,20 @@ if (isset($_POST['update4'])){
 	<input type="date" name="birthdate" placeholder="Birthdate" class="form-control" value="<?php echo $row['birthdate']; ?>" ><br></div></div>
 	<div class="form-row">
 	<div class="col-md-4">
-	Gender : 
-	<input type="text" name="sex" placeholder="gender"  class="form-control" value="<?php echo $row['sex']; ?>" ><br></div>
+	Gender :
+	<select name ="sex" class="form-control" required>
+		<option value="<?php echo $row['sex']; ?>"><?php echo $row['sex']; ?></option>
+  		<option value="Male">Male</option>
+  		<option value="Female">Female</option>
+	</select><br></div>
 	<div class="col-md-4">
-	Civil status : 
-	<input type="text" name="civilstatus" placeholder="Civilstatus" class="form-control" value="<?php echo $row['civilstatus']; ?>" ><br></div>
+	Civil Status :
+	<select name ="civilstatus" class="form-control" required>
+	<option value="<?php echo $row['civilstatus']; ?>"><?php echo $row['civilstatus']; ?></option>
+  		<option value="Single">Single</option>
+  		<option value="Married">Married</option>
+		<option value="Widow">Widow</option>
+	</select><br></div>
 	<div class="col-md-4">
 	Citizenship : 
 	<input type="text" name="citizenship" placeholder="Citizenship" class="form-control" value="<?php echo $row['citizenship']; ?>" ><br></div></div>

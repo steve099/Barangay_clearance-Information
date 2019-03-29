@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2019 at 10:10 AM
+-- Generation Time: Mar 29, 2019 at 12:12 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -29,17 +29,16 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `barangay1` (
-  `id` int(10) NOT NULL,
-  `officer_id` int(10) NOT NULL,
-  `address` varchar(50) NOT NULL
+  `officer_id` int(11) NOT NULL,
+  `barangayname` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `barangay1`
 --
 
-INSERT INTO `barangay1` (`id`, `officer_id`, `address`) VALUES
-(1, 21, 'plaridel');
+INSERT INTO `barangay1` (`officer_id`, `barangayname`) VALUES
+(32, 'looc2');
 
 -- --------------------------------------------------------
 
@@ -49,10 +48,10 @@ INSERT INTO `barangay1` (`id`, `officer_id`, `address`) VALUES
 
 CREATE TABLE `brg_officer` (
   `officer_id` int(10) NOT NULL,
-  `lastname` varchar(50) NOT NULL,
-  `firstname` varchar(50) NOT NULL,
-  `middlename` varchar(50) NOT NULL,
-  `position` varchar(50) NOT NULL
+  `lastname` varchar(20) NOT NULL,
+  `firstname` varchar(20) NOT NULL,
+  `middlename` varchar(20) NOT NULL,
+  `position` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -60,8 +59,7 @@ CREATE TABLE `brg_officer` (
 --
 
 INSERT INTO `brg_officer` (`officer_id`, `lastname`, `firstname`, `middlename`, `position`) VALUES
-(2, 'banag', 'ian', 'macalong', 'SK chairman'),
-(21, 'wew', 'bodo', 'toyab', 'SK');
+(32, 'pocong', 'christian', 'wew', 'kapitan');
 
 -- --------------------------------------------------------
 
@@ -70,18 +68,10 @@ INSERT INTO `brg_officer` (`officer_id`, `lastname`, `firstname`, `middlename`, 
 --
 
 CREATE TABLE `cedula` (
-  `ctc_no` int(10) NOT NULL,
-  `placed_issue` varchar(50) NOT NULL,
+  `ctc_no` varchar(20) NOT NULL,
+  `placed_issue` varchar(20) NOT NULL,
   `date_issue` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `cedula`
---
-
-INSERT INTO `cedula` (`ctc_no`, `placed_issue`, `date_issue`) VALUES
-(21, 'southernlooc', '2019-03-05'),
-(213, 'loocproper', '2019-03-16');
 
 -- --------------------------------------------------------
 
@@ -93,18 +83,11 @@ CREATE TABLE `clearance` (
   `clearance_id` int(10) NOT NULL,
   `person_id` int(10) NOT NULL,
   `officer_id` int(10) NOT NULL,
-  `purpose` varchar(50) NOT NULL,
-  `ctc_no` int(20) NOT NULL,
-  `or_no` int(20) NOT NULL,
+  `purpose` varchar(20) NOT NULL,
+  `ctc_no` varchar(20) NOT NULL,
+  `or_no` varchar(20) NOT NULL,
   `date_issue` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `clearance`
---
-
-INSERT INTO `clearance` (`clearance_id`, `person_id`, `officer_id`, `purpose`, `ctc_no`, `or_no`, `date_issue`) VALUES
-(123, 2, 21, 'for school', 213, 213214, '2019-03-28');
 
 -- --------------------------------------------------------
 
@@ -115,20 +98,19 @@ INSERT INTO `clearance` (`clearance_id`, `person_id`, `officer_id`, `purpose`, `
 CREATE TABLE `household` (
   `officer_id` int(10) NOT NULL,
   `person_id` int(11) NOT NULL,
-  `brg_workers` varchar(30) NOT NULL,
+  `brg_workers` varchar(20) NOT NULL,
   `household_no` int(10) NOT NULL,
-  `barangay` varchar(20) NOT NULL,
-  `purok` varchar(50) NOT NULL,
-  `province` varchar(50) NOT NULL
+  `barangayname` varchar(20) NOT NULL,
+  `purok` varchar(10) NOT NULL,
+  `province` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `household`
 --
 
-INSERT INTO `household` (`officer_id`, `person_id`, `brg_workers`, `household_no`, `barangay`, `purok`, `province`) VALUES
-(21, 2, 'baluyos', 1234566, 'looc2', 'purok-2', 'mobod'),
-(2, 23, 'rupert', 1234, 'wew', 'purok-1', 'aloran');
+INSERT INTO `household` (`officer_id`, `person_id`, `brg_workers`, `household_no`, `barangayname`, `purok`, `province`) VALUES
+(32, 12, 'baluyos', 123456, 'looc2', 'purok-2', 'miss.occ');
 
 -- --------------------------------------------------------
 
@@ -139,18 +121,11 @@ INSERT INTO `household` (`officer_id`, `person_id`, `brg_workers`, `household_no
 CREATE TABLE `kaso` (
   `person_id` int(10) NOT NULL,
   `officer_id` int(10) NOT NULL,
-  `kaso` varchar(50) NOT NULL,
-  `victim` varchar(50) NOT NULL,
-  `date` date NOT NULL
+  `kaso` varchar(30) NOT NULL,
+  `victim` varchar(20) NOT NULL,
+  `date` date NOT NULL,
+  `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `kaso`
---
-
-INSERT INTO `kaso` (`person_id`, `officer_id`, `kaso`, `victim`, `date`) VALUES
-(2, 21, 'nanghuldap', 'mocay', '2019-03-05'),
-(23, 2, 'nangawat ug manok', 'baluys', '2019-03-05');
 
 -- --------------------------------------------------------
 
@@ -161,24 +136,25 @@ INSERT INTO `kaso` (`person_id`, `officer_id`, `kaso`, `victim`, `date`) VALUES
 CREATE TABLE `person` (
   `officer_id` int(10) NOT NULL,
   `person_id` int(10) NOT NULL,
-  `lastname` varchar(50) NOT NULL,
-  `firstname` varchar(50) NOT NULL,
-  `middlename` varchar(50) NOT NULL,
-  `birthplace` varchar(60) NOT NULL,
+  `lastname` varchar(20) NOT NULL,
+  `firstname` varchar(20) NOT NULL,
+  `middlename` varchar(20) NOT NULL,
+  `birthplace` varchar(25) NOT NULL,
   `birthdate` date NOT NULL,
   `sex` varchar(10) NOT NULL,
-  `civilstatus` varchar(50) NOT NULL,
-  `citizenship` varchar(50) NOT NULL,
-  `occupation` varchar(50) NOT NULL
+  `civilstatus` varchar(10) NOT NULL,
+  `citizenship` varchar(20) NOT NULL,
+  `occupation` varchar(30) NOT NULL,
+  `barangayname` varchar(20) NOT NULL,
+  `purok` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `person`
 --
 
-INSERT INTO `person` (`officer_id`, `person_id`, `lastname`, `firstname`, `middlename`, `birthplace`, `birthdate`, `sex`, `civilstatus`, `citizenship`, `occupation`) VALUES
-(21, 2, 'rovel2', 'elmiejoy', 'hungaw', 'sapangdalaga', '2019-03-28', 'Female', 'single', 'muslim', 'student'),
-(21, 23, 'bolodo', 'blesser ', 'cespon', 'aloran', '2019-03-27', 'Female', 'single', 'filipino', 'teacher');
+INSERT INTO `person` (`officer_id`, `person_id`, `lastname`, `firstname`, `middlename`, `birthplace`, `birthdate`, `sex`, `civilstatus`, `citizenship`, `occupation`, `barangayname`, `purok`) VALUES
+(32, 12, 'blesser', 'elmiejoy', 'hungaw', 'qerqrrf', '2019-03-29', 'Female', 'Widow', 'muslim', 'teacher', 'looc2', 'purok-3');
 
 -- --------------------------------------------------------
 
@@ -196,9 +172,11 @@ CREATE TABLE `purok2` (
 --
 
 INSERT INTO `purok2` (`officer_id`, `purok`) VALUES
-(21, 'purok-1'),
-(21, 'purok-2'),
-(21, 'purok-3');
+(32, 'purok-1'),
+(32, 'purok-2'),
+(32, 'purok-3'),
+(32, 'purok-4'),
+(32, 'purok-5');
 
 -- --------------------------------------------------------
 
@@ -207,10 +185,11 @@ INSERT INTO `purok2` (`officer_id`, `purok`) VALUES
 --
 
 CREATE TABLE `reciept` (
-  `or_no` int(10) NOT NULL,
+  `officer_id` int(11) NOT NULL,
+  `or_no` varchar(10) NOT NULL,
   `date_issue` date NOT NULL,
-  `place_issue` varchar(50) NOT NULL,
-  `purpose` varchar(50) NOT NULL,
+  `place_issue` varchar(20) NOT NULL,
+  `purpose` varchar(20) NOT NULL,
   `ammount_paid` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -242,9 +221,8 @@ INSERT INTO `users` (`user_id`, `username`, `email`, `password`) VALUES
 -- Indexes for table `barangay1`
 --
 ALTER TABLE `barangay1`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `officer_id` (`officer_id`),
-  ADD KEY `officer_id_2` (`officer_id`);
+  ADD PRIMARY KEY (`barangayname`),
+  ADD KEY `officer_id` (`officer_id`);
 
 --
 -- Indexes for table `brg_officer`
@@ -268,7 +246,9 @@ ALTER TABLE `clearance`
   ADD UNIQUE KEY `ctc_no` (`ctc_no`),
   ADD UNIQUE KEY `or_no` (`or_no`),
   ADD KEY `person_id_2` (`person_id`),
-  ADD KEY `ctc_no_2` (`ctc_no`);
+  ADD KEY `ctc_no_2` (`ctc_no`),
+  ADD KEY `or_no_2` (`or_no`),
+  ADD KEY `or_no_3` (`or_no`);
 
 --
 -- Indexes for table `household`
@@ -284,7 +264,8 @@ ALTER TABLE `household`
   ADD KEY `id` (`officer_id`),
   ADD KEY `purok` (`purok`),
   ADD KEY `officer_id` (`officer_id`),
-  ADD KEY `barangay` (`barangay`);
+  ADD KEY `barangay` (`barangayname`),
+  ADD KEY `barangayname` (`barangayname`);
 
 --
 -- Indexes for table `kaso`
@@ -316,23 +297,18 @@ ALTER TABLE `purok2`
 -- Indexes for table `reciept`
 --
 ALTER TABLE `reciept`
-  ADD PRIMARY KEY (`or_no`);
+  ADD PRIMARY KEY (`or_no`),
+  ADD KEY `officer_id` (`officer_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `barangay1`
---
-ALTER TABLE `barangay1`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `person`
 --
 ALTER TABLE `person`
-  MODIFY `person_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `person_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Constraints for dumped tables
@@ -342,7 +318,7 @@ ALTER TABLE `person`
 -- Constraints for table `barangay1`
 --
 ALTER TABLE `barangay1`
-  ADD CONSTRAINT `barangay1_ibfk_1` FOREIGN KEY (`officer_id`) REFERENCES `brg_officer` (`officer_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `barangay1_ibfk_1` FOREIGN KEY (`officer_id`) REFERENCES `brg_officer` (`officer_id`);
 
 --
 -- Constraints for table `clearance`
@@ -350,7 +326,8 @@ ALTER TABLE `barangay1`
 ALTER TABLE `clearance`
   ADD CONSTRAINT `clearance_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `person` (`person_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `clearance_ibfk_2` FOREIGN KEY (`officer_id`) REFERENCES `brg_officer` (`officer_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `clearance_ibfk_3` FOREIGN KEY (`ctc_no`) REFERENCES `cedula` (`ctc_no`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `clearance_ibfk_4` FOREIGN KEY (`or_no`) REFERENCES `reciept` (`or_no`),
+  ADD CONSTRAINT `clearance_ibfk_5` FOREIGN KEY (`ctc_no`) REFERENCES `cedula` (`ctc_no`);
 
 --
 -- Constraints for table `household`
@@ -358,7 +335,8 @@ ALTER TABLE `clearance`
 ALTER TABLE `household`
   ADD CONSTRAINT `household_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `person` (`person_id`),
   ADD CONSTRAINT `household_ibfk_2` FOREIGN KEY (`officer_id`) REFERENCES `brg_officer` (`officer_id`),
-  ADD CONSTRAINT `household_ibfk_3` FOREIGN KEY (`purok`) REFERENCES `purok2` (`purok`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `household_ibfk_3` FOREIGN KEY (`purok`) REFERENCES `purok2` (`purok`),
+  ADD CONSTRAINT `household_ibfk_4` FOREIGN KEY (`barangayname`) REFERENCES `barangay1` (`barangayname`);
 
 --
 -- Constraints for table `kaso`
@@ -378,6 +356,12 @@ ALTER TABLE `person`
 --
 ALTER TABLE `purok2`
   ADD CONSTRAINT `purok2_ibfk_2` FOREIGN KEY (`officer_id`) REFERENCES `brg_officer` (`officer_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `reciept`
+--
+ALTER TABLE `reciept`
+  ADD CONSTRAINT `reciept_ibfk_1` FOREIGN KEY (`officer_id`) REFERENCES `brg_officer` (`officer_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

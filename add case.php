@@ -55,7 +55,7 @@
       <div class="form-row">
 	  <div class="col-md-6">
       <label for="kaso">PersonCase:</label>
-      <input type="text" name="kaso" class="form-control" id="kaso" placeholder="case" required>
+      <textarea rows="4" cols="50" name="kaso" class="form-control" id="kaso" placeholder="case" required></textarea>
 	  </div><br>
 	  
 	  <div class="col-md-6">
@@ -66,6 +66,13 @@
       <label for="date">Date:</label>
       <input type="date" name="date" class="form-control" id="date" placeholder="date" required>
     </div><br>
+	Status :
+	<select name ="status" class="form-control" required>
+		<option value="">Select</option>
+  		<option value="Peding">Peding</option>
+  		<option value="Ongoing">On going</option>
+		<option value="solve">Solve</option>
+	</select><br></div></div>
 	
 	<form class="Form" method="post">
   <input  class="btn btn-primary" type ="submit" name="save_btn" value="Save"/>

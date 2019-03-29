@@ -17,10 +17,12 @@ $sex = mysqli_real_escape_string($mysqli, $_POST['sex']);
 $civilstatus = mysqli_real_escape_string($mysqli, $_POST['civilstatus']);
 $citizenship = mysqli_real_escape_string($mysqli, $_POST['citizenship']);
 $occupation = mysqli_real_escape_string($mysqli, $_POST['occupation']);
+$barangayname = mysqli_real_escape_string($mysqli, $_POST['barangayname']);
+$purok = mysqli_real_escape_string($mysqli, $_POST['purok']);
 
 
-$sql = "INSERT INTO `person` (`officer_id`, `person_id`, `lastname`, `firstname`, `middlename`, `birthplace`, `birthdate`, `sex`, `civilstatus`, `citizenship`, `occupation`) 
-VALUES ('$officer_id','$person_id', '$lastname', '$firstname', '$middlename', '$birthplace', '$birthdate', '$sex', '$civilstatus', '$citizenship', '$occupation');";
+$sql = "INSERT INTO `person` (`officer_id`, `person_id`, `lastname`, `firstname`, `middlename`, `birthplace`, `birthdate`, `sex`, `civilstatus`, `citizenship`, `occupation`, `barangayname`, `purok`) 
+VALUES ('$officer_id','$person_id', '$lastname', '$firstname', '$middlename', '$birthplace', '$birthdate', '$sex', '$civilstatus', '$citizenship', '$occupation', '$barangayname', '$purok');";
 
 
 

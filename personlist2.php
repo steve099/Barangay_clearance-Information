@@ -1,7 +1,7 @@
 <?php
 session_start();
 require 'connect.php';
-	$sql = "SELECT brg_officer.officer_id, brg_officer.lastname AS lname, brg_officer.firstname AS fname,brg_officer.position ,person.person_id, person.lastname, person.firstname, person.middlename,person.birthplace,person.birthdate,person.sex,person.civilstatus,person.citizenship,person.occupation 
+	$sql = "SELECT brg_officer.officer_id, brg_officer.lastname AS lname, brg_officer.firstname AS fname,brg_officer.position ,person.person_id, person.lastname, person.firstname, person.middlename,person.birthplace,person.birthdate,person.sex,person.civilstatus,person.citizenship,person.occupation,person.barangayname,person.purok 
 	FROM brg_officer 
 	JOIN person 
 	ON brg_officer.officer_id = person.officer_id";
@@ -22,7 +22,7 @@ require 'connect.php';
 <center>
 <center><strong><p align="center" style="font-size: 30px; margin-top: 12px;">Person List</p></strong></center>
 <table class="table table-bordered table-hover table-striped">
-<table style="width:125%">
+<table style="width:155%">
   <tr>
 		<th scope="col">|Officer name</th>
         <th scope="col">|Person id</th>
@@ -35,6 +35,8 @@ require 'connect.php';
 		<th scope="col">|CivilStatus</th>
 		<th scope="col">|Citizenship</th>
 		<th scope="col">|Occupation</th>
+		<th scope="col">|Barangay</th>
+		<th scope="col">|Purok</th>
 		<th scope="col">|Function</th>
       </center></tr>
 
@@ -55,6 +57,9 @@ require 'connect.php';
 			<td> | <?php echo $information['civilstatus']?></td>
 			<td> | <?php echo $information['citizenship']?></td>
 			<td> | <?php echo $information['occupation']?></td>
+			<td> | <?php echo $information['barangayname']?></td>
+			<td> | <?php echo $information['purok']?></td>
+			
 			
 
 	<td> | <a class="btn btn-danger" href="deleteperson.php?id=<?php echo $information['person_id']; ?>">Delete</i></a>

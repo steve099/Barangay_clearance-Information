@@ -10,11 +10,11 @@ if (isset($_POST['update2'])){
 	$person_id = mysqli_real_escape_string($con, $_POST['person_id']);
 	$brg_workers = mysqli_real_escape_string($con, $_POST['brg_workers']);
 	$household_no = mysqli_real_escape_string($con, $_POST['household_no']);
-	$barangay = mysqli_real_escape_string($con, $_POST['barangay']);
+	$barangayname = mysqli_real_escape_string($con, $_POST['barangayname']);
 	$province = mysqli_real_escape_string($con, $_POST['province']);
 	
 
-	$sql = "UPDATE `household` SET `brg_workers` = '$brg_workers', `household_no` = '$household_no', `barangay` = '$barangay',`province` = '$province' WHERE `household`.`person_id` ='$id'";
+	$sql = "UPDATE `household` SET `brg_workers` = '$brg_workers', `household_no` = '$household_no', `barangayname` = '$barangayname',`province` = '$province' WHERE `household`.`person_id` ='$id'";
 	
 	if (mysqli_query($con, $sql)) {
 		header('location: householdlist.php');
@@ -52,7 +52,7 @@ if (isset($_POST['update2'])){
 	<input type="text" name="household_no" placeholder="household no" class="form-control" value="<?php echo $row['household_no']; ?>"><br></div>
 	<div class="col-md-4">
 	barangay :
-	<input type="text" name="barangay" placeholder="barangay" class="form-control" value="<?php echo $row['barangay']; ?>"><br></div></div>
+	<input type="text" name="barangayname" placeholder="barangay" class="form-control" value="<?php echo $row['barangayname']; ?>"><br></div></div>
 	<div class="form-row">
 	<div class="col-md-4"></div>
 	<div class="col-md-4">

@@ -1,7 +1,7 @@
 <?php
 session_start();
 require 'connect.php';
-	$sql = "SELECT brg_officer.officer_id, brg_officer.lastname, brg_officer.firstname,brg_officer.position,barangay1.address
+	$sql = "SELECT brg_officer.officer_id, brg_officer.lastname, brg_officer.firstname,brg_officer.position,barangay1.barangayname
 	FROM brg_officer 
 	JOIN barangay1 
 	ON brg_officer.officer_id = barangay1.officer_id";
@@ -25,7 +25,7 @@ require 'connect.php';
 <thead>
   <tr>
         <th scope="col">|Officer ID</th>
-        <th scope="col">|Address </th>
+        <th scope="col">|Barangay </th>
         <th scope="col">|Function</th>
       </center></tr>
 
@@ -37,7 +37,7 @@ require 'connect.php';
 				
 			<tr>
 			<td> | <?php echo $information['officer_id']."| ".$information["lastname"]." ".$information["firstname"]." | ".$information["position"];?></td>
-			<td> | <?php echo $information['address']?></td>
+			<td> | <?php echo $information['barangayname']?></td>
 					
 			
 

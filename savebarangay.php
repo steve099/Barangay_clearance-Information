@@ -7,10 +7,10 @@ $db ='';
 $mysqli = new mysqli('localhost','root','','barangay') or die(mysqli_error($mysqli));
 
 $officer_id = mysqli_real_escape_string($mysqli, $_POST['officer_id']);
-$address = mysqli_real_escape_string($mysqli, $_POST['address']);
+$barangayname = mysqli_real_escape_string($mysqli, $_POST['barangayname']);
 
-$sql = "INSERT INTO `barangay1` (`officer_id`, `address`) 
-VALUES ('$officer_id', '$address');";
+$sql = "INSERT INTO `barangay1` (`officer_id`, `barangayname`) 
+VALUES ('$officer_id', '$barangayname');";
 
 
 

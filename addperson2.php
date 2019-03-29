@@ -56,19 +56,64 @@ include('connect.php');
 	Gender :
 	<select name ="sex" class="form-control" required>
 		<option value="">Select</option>
-  		<option value="Male">Male</option>
-  		<option value="Female">Female</option>
+  		<option value="Male">male</option>
+  		<option value="Female">female</option>
 	</select><br></div></div>
 	<div class="form-row">
 	<div class="col-md-4">
 	Civil Status :
-	<input type="text" name="civilstatus" placeholder="civil status" class="form-control"required><br></div>
+	<select name ="civilstatus" class="form-control" required>
+		<option value="">Select</option>
+  		<option value="Single">Single</option>
+  		<option value="Married">Married</option>
+		<option value="Widow">Widow</option>
+	</select><br></div>
 	<div class="col-md-4">
 	Citizenship :
 	<input type="text" name="citizenship" placeholder="citizenship" class="form-control"required><br></div>
 	<div class="col-md-4">
 	Occupation :
-	<input type="text" name="occupation" placeholder="occupation" class="form-control"required></div></div><br><br>
+	<input type="text" name="occupation" placeholder="occupation" class="form-control"required></div></div><br>
+		<?php 
+	include('connect.php');
+			$query = "SELECT * FROM barangay1 ";
+			$result = mysqli_query($con, $query);
+
+	?>
+	<div class="col-md-6">
+      <label for="barangayname">Barangay Name:</label>
+      <select name= "barangayname" class="form-control">
+	  <?php
+	  if (mysqli_num_rows($result)){
+		  while($row = mysqli_fetch_array($result)){
+		?>
+		<option value="<?php echo $row['barangayname']; ?>"> <?php echo $row['barangayname']; ?></option>
+		<?php
+		  }
+	  }
+	  ?>
+	  </select>
+    </div></div><br>
+		<?php 
+			include('connect.php');
+			$query = "SELECT * FROM purok2 ";
+			$result = mysqli_query($con, $query);
+
+			?>
+	<div class="col-md-6">
+      <label for="purok">Purok:</label>
+      <select name= "purok" class="form-control">
+	  <?php
+	  if (mysqli_num_rows($result)){
+		  while($row = mysqli_fetch_array($result)){
+		?>
+		<option value="<?php echo $row['purok']; ?>"> <?php echo $row['purok']; ?></option>
+		<?php
+		  }
+	  }
+	  ?>
+	  </select>
+    </div><br>
 	<div class="form-row">
 	<div class="col-md-4"></div>
 	<div class="col-md-4">

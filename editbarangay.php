@@ -7,9 +7,9 @@ $result = mysqli_query($con, $query);
 if (isset($_POST['update1'])){ 
 	$id = $_GET['edit_id'];
 	$officer_id = mysqli_real_escape_string($con, $_POST['officer_id']);
-	$address = mysqli_real_escape_string($con, $_POST['address']);
+	$barangayname = mysqli_real_escape_string($con, $_POST['barangayname']);
 
-	$sql = "UPDATE `barangay1` SET  `officer_id`='$officer_id', `address`='$address' WHERE `officer_id`='$id'";
+	$sql = "UPDATE `barangay1` SET  `officer_id`='$officer_id', `barangayname`='$barangayname' WHERE `officer_id`='$id'";
 	
 	if (mysqli_query($con, $sql)) {
 		header('location: barangaylist.php');
@@ -43,8 +43,8 @@ if (isset($_POST['update1'])){
 	Officer ID :
 	<input type="number" name="officer_id" placeholder="officer id" class="form-control" value="<?php echo $row['officer_id']; ?>" ><br></div>
 	<div class="col-md-6">
-	Address :
-	<input type="text" name="address" placeholder="address" class="form-control" value="<?php echo $row['address']; ?>" ><br><br></div></div>
+	Barangay :
+	<input type="text" name="barangayname" placeholder="barangay" class="form-control" value="<?php echo $row['barangayname']; ?>" ><br><br></div></div>
 	
 	
 	<div class="form-row">

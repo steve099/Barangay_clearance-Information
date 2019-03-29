@@ -1,7 +1,7 @@
 <?php
 session_start();
 require 'connect.php';
-	$sql = "SELECT brg_officer.officer_id, brg_officer.lastname AS lname, brg_officer.firstname AS fname,brg_officer.position, person.person_id, person.lastname, person.firstname,kaso.kaso,kaso.victim,kaso.date 
+	$sql = "SELECT brg_officer.officer_id, brg_officer.lastname AS lname, brg_officer.firstname AS fname,brg_officer.position, person.person_id, person.lastname, person.firstname,kaso.kaso,kaso.victim,kaso.date,kaso.status 
 	FROM brg_officer 
 	JOIN kaso 
 	ON brg_officer.officer_id = kaso.officer_id 
@@ -31,6 +31,7 @@ require 'connect.php';
         <th scope="col">|Kaso</th>
 		<th scope="col">|Victim</th>
 		<th scope="col">|Date</th>
+		<th scope="col">|Status</th>
          <th scope="col">|Function</th>
       </center></tr>
 
@@ -45,6 +46,7 @@ require 'connect.php';
 			<td> | <?php echo $information['kaso'];?></td>
 			<td> | <?php echo $information['victim'];?></td>
 			<td> | <?php echo $information['date'];?></td>
+			<td> | <?php echo $information['status'];?></td>
 			
 
 	<td> | <a class="btn btn-danger" href="deletecase.php?id=<?php echo $information['person_id']; ?>">Delete</i></a>

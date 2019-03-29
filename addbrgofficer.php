@@ -23,12 +23,12 @@
 	Middle name :
 	<input type="text" name="middlename" placeholder="middle name" class="form-control" required><br>
 	Position : 
-	<input type="text" name="position" placeholder="Position" class="form-control" required><br><br>
-
+	<input type="text" name="position" placeholder="Position" class="form-control" required><br>
+	
 	<button type="submit" name="update" class="btn btn-primary">Submit</button>
 	<a href ="brgofficerlist.php"><input class="btn btn-info" type="button" id="list_btn" value="List"/></a>
 	<a href ="home.php"><input class="btn btn-secondary" type="button" id="list_btn" value="Back"/></a>
-
+	<div class="col-md-4">
 
 </div>
 </div>
