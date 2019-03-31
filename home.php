@@ -29,9 +29,6 @@
 </div>
 		<center><h2 style="color:white;">Barangay/Clearance Info System</h2></center>
 		<div class="pill-nav">
-			<a href ="list.php">List</a>
-		</div>
-		<div class="pill-nav">
 			<a href ="addbrgofficer.php">Add Officer</a>
 		</div>
 		<div class="pill-nav">
@@ -55,8 +52,8 @@
 		<div class="pill-nav">
 			<a href ="addclearance.php">Add Clearance</a>
 		</div>
-		<!--<div class="pill-nav">
-			<a href ="addreciept.php">Add Reciept</a>-->
+		<div class="pill-nav">
+			<a href ="updatepassword.php">Edit Password</a>
 		</div>
   	
  </body>

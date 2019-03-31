@@ -13,38 +13,39 @@ require 'connect.php';
 <html>
 <head>			
 		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-		<script type="text/javascript" src="bootstrap/js/jquery-slim.min.js"></script>
-		<script type="text/javascript" src="bootstrap/js/popper.min.js"></script>
-		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/dataTables.bootstrap4.css"/>
+		<script type="text/javascript" src="bootstrap/js/jquery.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.bundle.js"></script>
 </head>
 <body>
 
-<center><h2> List </h2>
+<center><strong><p align="center" style="font-size: 30px; margin-top: 12px;">Purok List</p></strong></center>
+<div class="table-responsive">
+<table class="table table-bordered table-hover table-striped" id="barangay_list">
 
-<table class="table table-dark">
-<table style="width:50%">
 <thead>
   <tr>
-        <th scope="col">|Officer ID</th>
-        <th scope="col">|Barangay </th>
-        <th scope="col">|Function</th>
+        <th scope="col">Officer name</th>
+        <th scope="col">Barangay </th>
+        <th scope="col">Function</th>
       </center></tr>
 
  </thead>
  <tbody>
 	  <?php
       		while($information=mysqli_fetch_assoc($records)){
-      			echo "<tr>";?>
+      			?>
 				
 			<tr>
-			<td> | <?php echo $information['officer_id']."| ".$information["lastname"]." ".$information["firstname"]." | ".$information["position"];?></td>
-			<td> | <?php echo $information['barangayname']?></td>
+			<td>  <?php echo $information["firstname"]." ".$information["lastname"]." | ".$information["position"];?></td>
+			<td>  <?php echo $information['barangayname']?></td>
 					
 			
 
-	<td> | <a class="btn btn-danger" href="deletebarangay.php?id=<?php echo $information['id']; ?>">Delete</i></a>
-		</td>
-	<td> | 
+	<td>  <a class="btn btn-danger" href="deletebarangay.php?id=<?php echo $information['id']; ?>">Delete</i></a>
+ 
     <a class="btn btn-success" href="editbarangay.php?edit_id=<?php echo $information['officer_id']; ?>">Edit</i></a>
 		</td>
 
@@ -56,9 +57,13 @@ require 'connect.php';
 	</tr>
 	</tbody>
 	  </table>
-	 <br><br><br><br><a href= "addbarangay.php"><input class="btn btn-primary" type="button" id="list_btn" value="Add barangay"/></a>
+	 <br><br><center><a href= "addbarangay.php"><input class="btn btn-primary" type="button" id="list_btn" value="Add barangay"/></a>
 	<a href ="home.php"><input class="btn btn-info" type="button" id="list_btn" value="Home"/></a>
-	<a href ="list.php"><input class="btn btn-secondary" type="button" id="list_btn" value="Back"/></a>
-
+	<a href ="list.php"><input class="btn btn-secondary" type="button" id="list_btn" value="Back"/></a></center>
+<script>
+		$(document).ready( function () {
+    $('#barangay_list').DataTable();
+} );
+	</script>
 </body>
 </html>
