@@ -11,7 +11,7 @@
   	<h2>Login</h2>
   </div>
 	 
-  <form method="post" action="home.php">
+  <form method="post" action="check_login.php">
   	<?php include('error.php'); ?>
   	<div class="input-group">
   		<label>Username</label><br>

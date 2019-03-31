@@ -15,10 +15,6 @@ VALUES ('$officer_id','$purok');";
 
 
 $result =  mysqli_query($mysqli, $sql);
-if ($result == true){
-header("Location:puroklist.php?save=success");
-}		
-else {
-	echo "error";
-}
+echo "<script> alert('Succesfully Added!'); window.location.href='puroklist.php';</script>";
 
+?>

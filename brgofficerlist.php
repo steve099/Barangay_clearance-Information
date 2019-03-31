@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('set.php');
 require 'connect.php';
 	$sql = "SELECT * FROM brg_officer";
 	$records=mysqli_query($con,$sql);

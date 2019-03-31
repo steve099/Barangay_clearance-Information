@@ -1,5 +1,7 @@
 <?php
 session_start();
+include('set.php');
+	
 require 'connect.php';
 	$sql = "SELECT brg_officer.officer_id, brg_officer.lastname AS lname, brg_officer.firstname AS fname, person.person_id, person.lastname, person.firstname,clearance.clearance_id,clearance.purpose,clearance.ctc_no,clearance.or_no,clearance.date_issue
 	FROM brg_officer 

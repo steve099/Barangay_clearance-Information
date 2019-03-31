@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('set.php');
 require 'connect.php';
 	$sql = "SELECT brg_officer.officer_id, brg_officer.lastname, brg_officer.firstname,brg_officer.position,barangay1.barangayname
 	FROM brg_officer 

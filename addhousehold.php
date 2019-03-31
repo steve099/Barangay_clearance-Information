@@ -1,4 +1,6 @@
-<?php 
+<?php
+session_start();
+include('set.php'); 
 include('connect.php');
 	$query = "SELECT * FROM brg_officer ";
 	$result = mysqli_query($con, $query);

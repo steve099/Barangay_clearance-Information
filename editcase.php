@@ -1,4 +1,6 @@
 <?php
+session_start();
+include('set.php');
 include ('connect.php');
 $id = $_GET['edit_id'];
 $query = "SELECT * FROM kaso WHERE person_id= '$id'";

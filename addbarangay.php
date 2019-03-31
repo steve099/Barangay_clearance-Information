@@ -1,4 +1,6 @@
-<?php 
+<?php
+session_start();
+include('set.php'); 
 include('connect.php');
 	$query = "SELECT * FROM brg_officer ";
 	$result = mysqli_query($con, $query);
@@ -24,7 +26,7 @@ include('connect.php');
 	  if (mysqli_num_rows($result)){
 		  while($row = mysqli_fetch_array($result)){
 		?>
-		<option value="<?php echo $row['officer_id']; ?>"> <?php echo $row['firstname']; ?></option>
+		<option value="<?php echo $row['officer_id']; ?>"> <?php echo $row['firstname']." ".$row["lastname"]." | ".$row["position"]; ?></option>
 		<?php
 		  }
 	  }

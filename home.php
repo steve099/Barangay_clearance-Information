@@ -1,3 +1,14 @@
+<?php 
+	session_start();
+	include('set.php');
+	
+	if(isset($_POST['logout'])){
+		session_destroy();
+		unset($_SESSION['username']);
+		header('location: login.php');
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,26 +23,25 @@
 </head>
 <body>
 <div class="pill-nav">
-<a href ="logout.php">Logout</a>
+<form method="post">
+<button type="submit" class="btn btn-danger" name="logout">Logout</button>
+</form>
 </div>
 		<center><h2 style="color:white;">Barangay/Clearance Info System</h2></center>
 		<div class="pill-nav">
 			<a href ="list.php">List</a>
 		</div>
 		<div class="pill-nav">
-			<a href ="addcedula.php">Search</a>
+			<a href ="addbrgofficer.php">Add Officer</a>
 		</div>
 		<div class="pill-nav">
-			<a href ="addbrgofficer.php">Add Officer</a>
+			<a href ="addbarangay.php">Add Barangay</a>
 		</div>
 		<div class="pill-nav">
 			<a href ="addperson2.php">Add Person</a>
 		</div>
 		<div class="pill-nav">
 			<a href ="addhousehold.php">Add Household</a>
-		</div>
-		<div class="pill-nav">
-			<a href ="addbarangay.php">Add Barangay</a>
 		</div>
 		<div class="pill-nav">
 			<a href ="addpurok.php">Add Purok</a>
@@ -45,8 +55,8 @@
 		<div class="pill-nav">
 			<a href ="addclearance.php">Add Clearance</a>
 		</div>
-		<div class="pill-nav">
-			<a href ="addreciept.php">Add Reciept</a>
+		<!--<div class="pill-nav">
+			<a href ="addreciept.php">Add Reciept</a>-->
 		</div>
   	
  </body>

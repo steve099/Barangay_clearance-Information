@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('set.php');
 require 'connect.php';
 	$sql = "SELECT brg_officer.officer_id, brg_officer.lastname AS lname, brg_officer.firstname AS fname,brg_officer.position, person.person_id, person.lastname, person.firstname,kaso.kaso,kaso.victim,kaso.date,kaso.status 
 	FROM brg_officer 
@@ -24,7 +25,7 @@ require 'connect.php';
 
 <center><h2> Case List </h2>
 <table class="table table-bordered table-hover table-striped">
-<table style="width:90%">
+<table style="width:100%">
   <tr>
 		<th scope="col">|Officer name</th>
         <th scope="col">|Person name</th>

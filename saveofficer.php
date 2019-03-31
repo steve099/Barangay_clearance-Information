@@ -17,7 +17,5 @@ $sql = "INSERT INTO `brg_officer` (`officer_id`, `lastname`, `firstname`, `middl
 
 mysqli_query($mysqli, $sql);
 		
-header("Location: brgofficerlist.php?save=success");
-
-
+echo "<script> alert('Succesfully Added!'); window.location.href='brgofficerlist.php';</script>";
 ?>

@@ -1,5 +1,7 @@
 <?php
-session_start();
+	session_start();
+	include('set.php');
+	
 require 'connect.php';
 		$sql = "SELECT person.person_id, person.lastname, person.firstname, cedula.ctc_no, cedula.placed_issue, cedula.date_issue
 		FROM person 
@@ -47,7 +49,7 @@ require 'connect.php';
 	<td> | <a class="btn btn-danger" href="deletecedula.php?id=<?php echo $information['ctc_no']; ?>">Delete</i></a>
 		</td>
 	<td> | 
-    <a  class="btn btn-success" href="editclearance.php?edit_id=<?php echo $information['ctc_no']; ?>">Edit</i></a>
+    <a  class="btn btn-success" href="editcedula.php?edit_id=<?php echo $information['ctc_no']; ?>">Edit</i></a>
 		</td>
 
 

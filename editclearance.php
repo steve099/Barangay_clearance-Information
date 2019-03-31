@@ -1,4 +1,7 @@
 <?php
+session_start();
+include('set.php');
+	
 include ('connect.php');
 $id = $_GET['edit_id'];
 $query = "SELECT * FROM clearance WHERE clearance_id= '$id'";

@@ -1,3 +1,8 @@
+<?php 
+	session_start();
+	include('set.php');
+
+?>
 <!DOCTYPE html>
 <html>
 <head>

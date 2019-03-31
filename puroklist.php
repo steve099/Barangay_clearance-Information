@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('set.php');
 require 'connect.php';
 	$sql = "SELECT * FROM purok2";
 	$records=mysqli_query($con,$sql);
